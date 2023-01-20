@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :hotels
   has_many :reservations
-  has_may :rooms, through: :reservations
+  has_many :rooms, through: :reservations
 
   validates :name, presence: true, length: { in: 6..45 }
   validates :email, presence: true, uniqueness: true
