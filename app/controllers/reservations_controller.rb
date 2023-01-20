@@ -19,6 +19,13 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    reservation = Reservation.find(params[:id])
+    reservation.destroy
+        redirect_to root_path, notice: 'Reservation was successfully deleted.'
+    end
+  end
+
   private
 
   def set_author
