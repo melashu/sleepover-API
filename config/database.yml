@@ -24,6 +24,7 @@ test:
   encoding: unicode
   username: postgres
   password: 12@34
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
