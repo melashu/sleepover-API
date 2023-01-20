@@ -8,22 +8,22 @@ default: &default
 development:
   <<: *default
   database: hotel_dev
-  adapter: postgresql
-  encoding: unicode
-  port: 4556
-  host : localhost
-  username: postgres
-  password: meshu
+  # adapter: postgresql
+  # encoding: unicode
+  # port: 4556
+  # host : localhost
+  # username: postgres
+  # password: meshu
 
 test:
   <<: *default
   database: hotel_test 
-  host : localhost
-  port: 4556
-  adapter: postgresql
-  encoding: unicode
-  username: postgres
-  password: meshu
+  # host : localhost
+  # port: 4556
+  # adapter: postgresql
+  # encoding: unicode
+  # username: postgres
+  # password: meshu
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
