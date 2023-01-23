@@ -1,3 +1,4 @@
+# rubocop:disable all
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,57 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_20_100742) do
+ActiveRecord::Schema[7.0].define(version: 20_230_120_100_742) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "hotels", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
-    t.string "phone"
-    t.bigint "user_id", null: false
-    t.string "country"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_hotels_on_user_id"
+  create_table 'hotels', force: :cascade do |t|
+    t.string 'name'
+    t.string 'city'
+    t.string 'phone'
+    t.bigint 'user_id', null: false
+    t.string 'country'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_hotels_on_user_id'
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_reservations_on_room_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
+  create_table 'reservations', force: :cascade do |t|
+    t.bigint 'user_id', null: false
+    t.bigint 'room_id', null: false
+    t.date 'start_date'
+    t.date 'end_date'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['room_id'], name: 'index_reservations_on_room_id'
+    t.index ['user_id'], name: 'index_reservations_on_user_id'
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.integer "room_no"
-    t.integer "number_of_bed"
-    t.string "photo"
-    t.decimal "prices"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "hotel_id", null: false
-    t.index ["hotel_id"], name: "index_rooms_on_hotel_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+  create_table 'rooms', force: :cascade do |t|
+    t.integer 'room_no'
+    t.integer 'number_of_bed'
+    t.string 'photo'
+    t.decimal 'prices'
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'hotel_id', null: false
+    t.index ['hotel_id'], name: 'index_rooms_on_hotel_id'
+    t.index ['user_id'], name: 'index_rooms_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'username'
+    t.string 'email'
+    t.string 'password_digest'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "hotels", "users"
-  add_foreign_key "reservations", "rooms"
-  add_foreign_key "reservations", "users"
-  add_foreign_key "rooms", "hotels"
-  add_foreign_key "rooms", "users"
+  add_foreign_key 'hotels', 'users'
+  add_foreign_key 'reservations', 'rooms'
+  add_foreign_key 'reservations', 'users'
+  add_foreign_key 'rooms', 'hotels'
+  add_foreign_key 'rooms', 'users'
 end
