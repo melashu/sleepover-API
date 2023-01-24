@@ -17,8 +17,5 @@ class ApplicationController < ActionController::API
     render json: { error: 'unauthorized' }, status: :unauthorized
   end
 
-   def current_user
-    @current_user
-   end
-
+  attr_reader :current_user
 end

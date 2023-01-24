@@ -5,9 +5,16 @@ class Ability
     if user.is? :admin
       can :manage, :all
     else
-      can %i[read update delete], User, user_id: user.id
-      can %i[create read], Reservation, user:
-      # can :read, Room, user:
+      can %i[read update delete], User, id: user.id
+      can :read, Reservation, user_id: user.id
+      can :create, Reservation
+      can :delete, Reservation do |reserved|
+        reserved.start_date < Date.now
+      end
+
+      can :read, Room
+      can :read, Hotel
+
     end
 
     # return unless user.present?

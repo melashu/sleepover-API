@@ -1,10 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
   before_action :set_user, only: %i[show destroy update]
-  before_action :load_and_authorize_resource, except: [:create]
+  skip_load_and_authorize_resource only: :create
 
   def index
-    @users = User.all
+    @users = User.accessible_by(current_ability)
     render json: @users, except: [:password_digest], status: :ok
   end
 
