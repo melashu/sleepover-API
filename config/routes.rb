@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'rooms/reservation', to: 'rooms#checkout_reservation'
+
+      resources :hotels
       resources :rooms
-      # Put your route below 
+
       resources :users
-    end
+      end
+
   end
 end
