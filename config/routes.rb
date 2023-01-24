@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   post '/auth/login/', to: 'authentication#login'
+  post '/auth/signup/', to: 'api/v1/users#create'
 
   namespace :api do
     namespace :v1 do
@@ -8,10 +9,8 @@ Rails.application.routes.draw do
       get "reservations/history", to: 'reservation#history'
       resources :hotels
       resources :rooms
+      resources :users, except: [:create]
       resources :reservations
-
-      resources :users
-      end
-
+    end
   end
 end
