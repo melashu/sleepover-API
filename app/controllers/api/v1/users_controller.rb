@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_action :authenticate_request, only: [:create]
   before_action :set_user, only: %i[show destroy update]
+  before_action :load_and_authorize_resource, except: [:create]
 
   def index
     @users = User.all
@@ -36,7 +37,7 @@ class Api::V1::UsersController < ApplicationController
 
   def user_params
     params.permit(:username, :name, :email, :password)
-    # params.permit(:username, :name, :email, :password)
+    # params.require(:user).permit(:username, :name, :email, :password)
   end
 
   def set_user

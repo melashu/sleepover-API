@@ -5,6 +5,8 @@ ruby '3.1.2'
 
 # Use Json Web Token(JWT) for token based authentication
 gem 'jwt'
+# Use for authorization
+gem 'cancancan'
 # gem 'jsonapi-serializer' ... recommeneded
 gem 'active_model_serializers'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

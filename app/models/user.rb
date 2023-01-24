@@ -9,4 +9,12 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { in: 6..254 }
   validates :username, presence: true, uniqueness: true, length: { in: 2..25 }
+
+  # User::Roles
+  # The available roles
+  Roles = %i[admin user].freeze # rubocop:disable Naming/ConstantName
+
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
 end

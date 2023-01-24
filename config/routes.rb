@@ -11,8 +11,7 @@ Rails.application.routes.draw do
       resources :hotels
       resources :rooms
 
-      resources :users
+      resources :users, except: [:create]
       end
-
   end
 end

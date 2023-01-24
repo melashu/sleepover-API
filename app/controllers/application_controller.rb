@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   include JsonWebToken
 
   before_action :authenticate_request
+  helper_method :current_user
 
   private
 
@@ -15,4 +16,9 @@ class ApplicationController < ActionController::API
   rescue StandardError
     render json: { error: 'unauthorized' }, status: :unauthorized
   end
+
+   def current_user
+    @current_user
+   end
+
 end
