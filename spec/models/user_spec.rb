@@ -40,4 +40,5 @@ RSpec.describe User, type: :model do
     it { should have_many(:hotels) }
     it { should have_many(:reservations) }
   end
+
 end
