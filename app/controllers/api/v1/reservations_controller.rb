@@ -1,5 +1,4 @@
 class Api::V1::ReservationsController < ApplicationController
-
   def index
     reservations = @current_user.reservations.where(archived: false)
     render json: reservations
@@ -12,7 +11,6 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
-
     if reservation.save
       render json: reservation, status: :created
     else
@@ -22,22 +20,24 @@ class Api::V1::ReservationsController < ApplicationController
 
   def update
     reservation = Reservation.find(params[:id])
-      render json: {message: "success" } if reservation.update(reservation_params)
+    render json: { message: 'success' } if reservation.update(reservation_params)
+    return if reservation.present?
 
-      render json: { errors: reservation.errors.full_messages } , status: :unprocessable_entity, unless reservation.present?
+    render json: { errors: reservation.errors.full_messages },
+           status: :unprocessable_entity
   end
 
   def destroy
     reservation = Reservation.find(params[:id])
     if reservation.destroy
-      render json: {message: "success" } 
+      render json: { message: 'success' }
     else
-      render json: { errors: reservation.errors.full_messages } , status: :unprocessable_entity
+      render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def history
-    reserved =  @current_user.reservations.where(archived: true)
+    reserved = @current_user.reservations.where(archived: true)
     render json: reserved, status: :created
   end
 
