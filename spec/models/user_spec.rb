@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Tom baraka',username: 'tom', email: 'tom00@gmail.com', password: 'tom244', password_digest: 'tom244' ) }
+  subject do
+    User.new(name: 'Tom baraka', username: 'tom', email: 'tom00@gmail.com', password: 'tom244',
+             password_digest: 'tom244')
+  end
   before { subject.save }
   it 'Name must not be blank' do
     subject.name = 'Tom baraka'
@@ -40,5 +43,4 @@ RSpec.describe User, type: :model do
     it { should have_many(:hotels) }
     it { should have_many(:reservations) }
   end
-
 end
