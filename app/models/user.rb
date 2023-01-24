@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 4..45 }
   validates :email, presence: true, uniqueness: true
+
   validates :password, presence: true, length: { in: 6..254 }
   validates :username, presence: true, uniqueness: true, length: { in: 2..25 }
 
@@ -17,4 +18,5 @@ class User < ApplicationRecord
   def is?(requested_role)
     role == requested_role.to_s
   end
+
 end

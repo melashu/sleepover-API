@@ -1,38 +1,44 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.where(user_id: current_user.id)
+    reservations = @current_user.reservations.where(archived: false)
+    render json: reservations
   end
 
   def show
-    render json: @reservation, status: :ok
+    reservation = Reservation.find(params[:id])
+    render json: reservation, status: :ok
   end
-
-  def new
-    @reservation = Reservation.new
-  end
-
-  def edit; end
 
   def create
-    @reservation = Reservation.new(reservation_params)
-
-    if @reservation.save
-      render json: @reservation, status: :created
+    reservation = Reservation.new(reservation_params)
+    if reservation.save
+      render json: reservation, status: :created
     else
-      render json: { errors: @reservation.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def update
-    return if @reservation.update(reservation_params)
+    reservation = Reservation.find(params[:id])
+    render json: { message: 'success' } if reservation.update(reservation_params)
+    return if reservation.present?
 
-    render json: { errors: @reservation.errors.full_messages },
+    render json: { errors: reservation.errors.full_messages },
            status: :unprocessable_entity
   end
 
   def destroy
-    @reservation = Reservation.find(params[:id])
-    return unless @reservation.destroy
+    reservation = Reservation.find(params[:id])
+    if reservation.destroy
+      render json: { message: 'success' }
+    else
+      render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def history
+    reserved = @current_user.reservations.where(archived: true)
+    render json: reserved, status: :created
   end
 
   private
