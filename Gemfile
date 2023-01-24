@@ -37,6 +37,10 @@ gem 'rubocop'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+end
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
