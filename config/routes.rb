@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
       resources :hotels
       resources :rooms
+
       resources :users
       end
+
   end
 end
