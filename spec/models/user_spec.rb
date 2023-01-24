@@ -8,8 +8,13 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'Email must not be blank' do
-    subject.email = nil
+  it 'Password must not be blank' do
+    subject.password = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Name must not be blank' do
+    subject.name = nil
     expect(subject).to_not be_valid
   end
 end
