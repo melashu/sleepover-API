@@ -39,7 +39,6 @@ class Api::V1::RoomsController < ApplicationController
     render json: { message: 'Success' }
   end
 
-
   private
 
   def param_checker
