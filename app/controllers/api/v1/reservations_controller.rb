@@ -1,6 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
+
   def index
-    @reservations = Reservation.all.where(user_id: current_user.id)
+    @reservations = @current_user.reservations.where(archived: false)
   end
 
   def show
@@ -33,6 +34,10 @@ class Api::V1::ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     return unless @reservation.destroy
+  end
+
+  def history
+    @current_user.reservations.where(archived: true)
   end
 
   private
