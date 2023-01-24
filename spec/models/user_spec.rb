@@ -22,4 +22,14 @@ RSpec.describe User, type: :model do
     subject.password_digest = nil
     expect(subject).to_not be_valid
   end
+
+  it 'Password confirmation must not be blank' do
+    subject.password_digest = nil
+    expect(subject).to_not be_valid
+  end
+
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:name) }
+  end
 end
