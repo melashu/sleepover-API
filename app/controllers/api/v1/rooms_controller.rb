@@ -1,22 +1,28 @@
 class Api::V1::RoomsController < ApplicationController
-  before_action :set_room, only: %i[show destroy]
+  before_action :check_room, only: %i[show destroy]
+  load_and_authorize_resource
   def index
-    room = @current_user.rooms
-    render json: room
+    rooms = Room.all
+    # hotel = Hotel.includes(:rooms).all.where(rooms:{reserve: false})
+
+    render json: rooms
+    # render json: {room: rooms}
   end
 
   def create
     room = Room.new(param_checker)
+    room.user_id = @current_user.id
     if room.save
       render json: { message: 'success' }
     else
-      render json: { message: 'error' }, status: :unprocessable_entity
+      render json: { message: 'error', errro: room.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def show
-    render json: { message: 'success', room: @room }, status: :ok, except: %i[created_at updated_at] if @room.present?
-    render json: { message: 'No record found' }, status: :not_found unless @room.present?
+    # render json: { message: 'success', room: @room }, status: :ok if @room.present?
+    render json: @room, status: :ok if @room.present?
+    render json: { message: 'error', error: 'Record not found' }, status: :not unless @room.present?
   end
 
   def destroy
@@ -36,16 +42,16 @@ class Api::V1::RoomsController < ApplicationController
         res.room.update(reserve: false)
       end
     end
-    render json: { message: 'Success' }
+    render json: { message: 'success' }
   end
 
   private
 
   def param_checker
-    params.permit(:room_no, :number_of_bed, :photo, :prices, :user_id, :hotel_id)
+    params.permit(:room_no, :number_of_bed, :photo, :prices, :hotel_id)
   end
 
-  def set_room
-    @room = @current_user.rooms.find(params[:id])
+  def check_room
+    @room = Room.find(params[:id])
   end
 end

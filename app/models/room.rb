@@ -8,5 +8,5 @@ class Room < ApplicationRecord
 
   validates :prices, presence: true
   validates :number_of_bed, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
 end
