@@ -37,13 +37,13 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def history
-    reserved = @current_user.reservations.where(archived: true)
+    reserved = @current_user.reservations.where(archived: false)
     render json: reserved, status: :created
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:start_date, :end_date, :user_id, :room_id)
+    params.permit(:start_date, :end_date, :user_id, :room_id)
   end
 end
