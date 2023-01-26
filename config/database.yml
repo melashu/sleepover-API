@@ -8,23 +8,19 @@ default: &default
 development:
   <<: *default
   database: hotel_dev
-
-  # adapter: postgresql
-  # encoding: unicode
-  # port: 5432
-  # host : localhost
-  # username: postgres
-  # password: password
+  port: 5432
+  host: localhost
+  username: postgres
+  password: password
 
 test:
   <<: *default
   database: hotel_test 
-  # host : localhost
-  # port: 5432
-  # adapter: postgresql
-  # encoding: unicode
-  # username: postgres
-  # password: password
+  host: localhost
+  port: 5432
+  encoding: unicode
+  username: postgres
+  password: password
 
 
 production:
