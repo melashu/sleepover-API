@@ -14,7 +14,7 @@ development:
   # port: 5432
   # host : localhost
   # username: postgres
-  # password: 12@34
+  # password: password
 
 test:
   <<: *default
@@ -24,7 +24,7 @@ test:
   # adapter: postgresql
   # encoding: unicode
   # username: postgres
-  # password: 12@34
+  # password: password
 
 
 production:
