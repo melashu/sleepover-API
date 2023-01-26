@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'rooms/reservation', to: 'rooms#checkout_reservation'
       get "reservations/history", to: 'reservation#history'
+      get "reservations/all", to: 'reservation#all_reservation'
+
       resources :hotels
       resources :rooms
       resources :users, except: [:create]
