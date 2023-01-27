@@ -4,7 +4,6 @@ class Room < ApplicationRecord
   has_many :users, through: :reservations
 
   has_one_attached :photo
-  # has_many_and_belogs
 
   validates :prices, presence: true
   validates :number_of_bed, presence: true
