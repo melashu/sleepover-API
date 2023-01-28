@@ -26,7 +26,6 @@ test:
   username: postgres
   password: meshu
 
-
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
