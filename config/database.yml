@@ -9,22 +9,22 @@ development:
   <<: *default
   database: hotel_dev
 
-  # adapter: postgresql
-  # encoding: unicode
-  # port: 5432
-  # host : localhost
-  # username: postgres
-  # password: 12@34
+  adapter: postgresql
+  encoding: unicode
+  port: 4556
+  host: localhost
+  username: postgres
+  password: meshu
 
 test:
   <<: *default
   database: hotel_test 
-  # host : localhost
-  # port: 5432
-  # adapter: postgresql
-  # encoding: unicode
-  # username: postgres
-  # password: 12@34
+  host: localhost
+  port: 4556
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: meshu
 
 
 production:

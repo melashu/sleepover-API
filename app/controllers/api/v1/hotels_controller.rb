@@ -1,5 +1,6 @@
 class Api::V1::HotelsController < ApplicationController
   before_action :check_hotel, only: %i[destroy show]
+  skip_before_action :authenticate_request, only: %i[index show]
   load_and_authorize_resource
 
   def index
