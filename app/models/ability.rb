@@ -2,6 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :read, Hotel
+    can :manage, :all
+
+    return unless user.present?
+
     if user.is? :admin
       can :manage, :all
     else

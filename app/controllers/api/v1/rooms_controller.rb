@@ -1,5 +1,6 @@
 class Api::V1::RoomsController < ApplicationController
   before_action :check_room, only: %i[show destroy]
+  skip_before_action :authenticate_request, only: %i[create index destroy] # remove
   load_and_authorize_resource
   def index
     rooms = Room.all
@@ -11,7 +12,7 @@ class Api::V1::RoomsController < ApplicationController
 
   def create
     room = Room.new(param_checker)
-    room.user_id = @current_user.id
+    # room.user_id = @current_user.id remove
     if room.save
       render json: { message: 'success' }
     else
@@ -48,7 +49,7 @@ class Api::V1::RoomsController < ApplicationController
   private
 
   def param_checker
-    params.permit(:room_no, :number_of_bed, :photo, :prices, :hotel_id)
+    params.permit(:room_no, :number_of_bed, :photo, :prices, :hotel_id, :user_id) # remove user_id
   end
 
   def check_room

@@ -42,7 +42,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def history
-    reserved = @current_user.reservations.where(archived: false)
+    reserved = Reservation.all.where(archived: true)
     render json: reserved, status: :created
   end
 
