@@ -6,6 +6,8 @@ ruby '3.1.3'
 # Use Json Web Token(JWT) for token based authentication
 gem 'jwt'
 
+gem 'rswag'
+
 # Use for authorization
 gem 'cancancan'
 # gem 'jsonapi-serializer' ... recommeneded

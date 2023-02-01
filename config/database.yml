@@ -20,6 +20,7 @@ test:
   <<: *default
   database: hotel_test 
   host: localhost
+
   port: 4556
   adapter: postgresql
   encoding: unicode
