@@ -1,6 +1,6 @@
 class HotelSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :name, :city, :phone, :country, :image
+  attributes :id, :name, :city, :phone, :country, :image, :detail
 
   has_many :rooms
 
