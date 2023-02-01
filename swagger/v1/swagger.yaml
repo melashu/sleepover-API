@@ -125,16 +125,134 @@
         }
       }
     },
-    "/api/v1/hotels/{id}/rooms": {
+    "/api/v1/reservations": {
+      "get": {
+        "summary": "Retrieves all Reservations",
+        "tags": [
+          "Reservatios"
+        ],
+        "description": "Retrieves all reservations (only for the logged in user or admin can retrieve all his/her reservations) by recieving token with the request that is sent as response body after login",
+        "responses": {
+          "200": {
+            "description": "reservations retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "room_id": {
+                        "type": "integer"
+                      },
+                      "start_date": {
+                        "type": "date"
+                      },
+                      "end_date": {
+                        "type": "date"
+                      },
+                      "archived": {
+                        "type": "boolean"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "hotel_id": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "room_id",
+                      "start_date",
+                      "end_date",
+                      "archived",
+                      "user_id",
+                      "hotel_id"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new resrvation",
+        "tags": [
+          "Reservations"
+        ],
+        "description": "Add new resrvation (only logged in admin can add new resrvation) by recieving token with the request that is sent as response body after login",
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "resrevation added"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Not created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "room_id": {
+                    "type": "integer"
+                  },
+                  "start_date": {
+                    "type": "date"
+                  },
+                  "end_date": {
+                    "type": "date"
+                  },
+                  "archived": {
+                    "type": "boolean"
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "hotel_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "room_id",
+                  "start_date",
+                  "end_date",
+                  "archived",
+                  "user_id",
+                  "hotel_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/rooms": {
       "get": {
         "summary": "Retrieves all rooms",
         "tags": [
           "Rooms"
         ],
         "description": "Retrieves all rooms (only logged in users or admin can retrieve rooms) by recieving token with the request that is sent as response body after login",
-        "parameters": [
-
-        ],
         "responses": {
           "200": {
             "description": "rooms retrieved",
@@ -190,9 +308,7 @@
             "description": "Unauthorized"
           }
         }
-      }
-    },
-    "/api/v1/rooms": {
+      },
       "post": {
         "summary": "Add new room",
         "tags": [

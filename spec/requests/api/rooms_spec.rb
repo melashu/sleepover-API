@@ -1,30 +1,19 @@
 require 'swagger_helper'
 
 RSpec.describe 'Rooms', type: :request do
-    path '/api/v1/hotels/{id}/rooms' do
+    path '/api/v1/rooms' do
         get 'Retrieves all rooms' do
           tags 'Rooms'
           description 'Retrieves all rooms (only logged in users or admin can retrieve rooms) by recieving token with the request that is sent as response body after login'
           produces 'application/json'
-          parameter hotel_id: :hotel, in: :body, schema: {
-            type: :object,
-           properties: {
-             id: { type: :integer },
-             name: { type: :string },
-             city: { type: :string },
-             country: { type: :string },
-             phone: { type: :string },
-             image: { type: :string },
-             details:{ type: :string }
-           }
-          }
+          
           response '200', 'rooms retrieved' do
             run_test!
     
             before do
               @admin = User.create( name:'admin', role: 'admin', email: 'admin@example.com', password: 'password', username: 'admin')
               @hotel = Hotel.create({ name: 'Hotel Name', city: 'New York', country: 'United States', phone: '+1234567890', image: 'https://example.com/hotel.jpg', user_id: @admin.id, details: 'This is a great hotel.'})
-            	@room = Room.create({ room_no: 21, number_of_bed: 3, prices: 23.0, photo: 'https://example.com/hotel.jpg', user_id: @admin.id, hotel_id: hotel.id})
+            	@room = Room.create([{ room_no: 21, number_of_bed: 3, prices: 23.0, photo: 'https://example.com/hotel.jpg', user_id: @admin.id, hotel_id: hotel.id}])
             end
             schema type: :array,
              items: {
