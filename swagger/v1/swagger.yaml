@@ -188,7 +188,7 @@
         "tags": [
           "Reservations"
         ],
-        "description": "Add new resrvation (only logged in admin can add new resrvation) by recieving token with the request that is sent as response body after login",
+        "description": "Add new resrvation (only logged in admin can add new resrvation) by recieving token with headers that which is a response body of login",
         "parameters": [
 
         ],
@@ -252,7 +252,7 @@
         "tags": [
           "Rooms"
         ],
-        "description": "Retrieves all rooms (only logged in users or admin can retrieve rooms) by recieving token with the request that is sent as response body after login",
+        "description": "Returns all rooms (only logged in user or admin can retrieve rooms) by recieving token with request",
         "responses": {
           "200": {
             "description": "rooms retrieved",
@@ -312,9 +312,8 @@
       "post": {
         "summary": "Add new room",
         "tags": [
-          "Rooms"
+          "Rooms only logged in admin can add new room"
         ],
-        "description": "Add new room (only logged in admin can add new room) by recieving token with the request that is sent as response body after login",
         "parameters": [
 
         ],
@@ -361,13 +360,11 @@
                   }
                 },
                 "required": [
-                  "id",
                   "room_no",
                   "number_of_bed",
                   "image",
                   "prices",
                   "photo",
-                  "reserve",
                   "user_id",
                   "hotel_id"
                 ]
@@ -383,7 +380,7 @@
         "tags": [
           "Users"
         ],
-        "description": "Add new user. one parameter can be added in a direct request to the api this could contain 'role' and this is the way to add admin.",
+        "description": "Add new user. one parameter can be added in a direct request to the api this could contain 'role'\n\t\t\t and this is the way to add admin.",
         "parameters": [
 
         ],
@@ -435,7 +432,7 @@
         "tags": [
           "Users"
         ],
-        "description": "Log user in. This request will return such object: \n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t'token': <token_string>,\n\t\t\t\t\t\t\t'user': { 'username': <username_string>, 'role': 'role_string' }\n\t\t\t\t\t\t}. \n\t\t\t\t\t\t",
+        "description": "Log user in. This request will return such object:\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t'token': <token_string>,\n\t\t\t\t\t\t\t'user': { 'username': <username_string>, 'role': 'role_string' }\n\t\t\t\t\t\t}.\n\t\t\t\t\t\t",
         "parameters": [
 
         ],

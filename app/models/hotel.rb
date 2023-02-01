@@ -3,4 +3,10 @@ class Hotel < ApplicationRecord
   has_many :rooms
 
   has_one_attached :image
+  validates :image, presence: true
+  validates :country, presence: true
+  validates :city, presence: true
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :detail, presence: true
 end
