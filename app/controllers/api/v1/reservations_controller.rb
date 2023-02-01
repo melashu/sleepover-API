@@ -4,6 +4,11 @@ class Api::V1::ReservationsController < ApplicationController
     render json: reservations
   end
 
+  def all_reservation
+    reservations = Reservation.all.where(archived: false)
+    render json: reservations
+  end
+
   def show
     reservation = Reservation.find(params[:id])
     render json: reservation, status: :ok
@@ -37,7 +42,7 @@ class Api::V1::ReservationsController < ApplicationController
   end
 
   def history
-    reserved = @current_user.reservations.where(archived: false)
+    reserved = Reservation.all.where(archived: true)
     render json: reserved, status: :created
   end
 

@@ -1,0 +1,78 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SLEEPOVER API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/hotels": {
+      "get": {
+        "summary": "Retrieves all hotels",
+        "tags": [
+          "Hotels"
+        ],
+        "description": "Retrieves all hotels (only logged in users can retrieve hotels) by recieving token with the request that is sent as response body after login",
+        "responses": {
+          "200": {
+            "description": "hotels retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "phone": {
+                        "type": "string"
+                      },
+                      "image": {
+                        "type": "string"
+                      },
+                      "details": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "image",
+                      "city",
+                      "country",
+                      "phone",
+                      "details"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "127.0.0.1:3000"
+        }
+      }
+    }
+  ]
+}
