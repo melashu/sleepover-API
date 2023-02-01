@@ -376,6 +376,102 @@
           }
         }
       }
+    },
+    "/api/v1/auth/signup": {
+      "post": {
+        "summary": "Add new room",
+        "tags": [
+          "Users"
+        ],
+        "description": "Add new user",
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "422": {
+            "description": "password cannot be blank"
+          },
+          "400": {
+            "description": "bad request, you are already registered"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "username",
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "summary": "login",
+        "tags": [
+          "Users"
+        ],
+        "description": "Log user in. This request will return such object: \n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t'token': <token_string>,\n\t\t\t\t\t\t\t'user': { 'username': <username_string>, 'role': 'role_string' }\n\t\t\t\t\t\t} ",
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "success"
+          },
+          "422": {
+            "description": "email cannot be blank"
+          },
+          "400": {
+            "description": "bad request wrong password or email"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "servers": [
