@@ -2,9 +2,9 @@ require 'swagger_helper'
 
 RSpec.describe 'Users', type: :request do
     path '/api/v1/auth/signup' do
-        post 'Add new room' do
+        post 'Add new user' do
             tags 'Users'
-            description "Add new user. one parameter canbe added in a direct request to the api this could contain 'role' and this is the way to add admin."
+            description "Add new user. one parameter can be added in a direct request to the api this could contain 'role' and this is the way to add admin."
             consumes 'application/json'
             parameter name: :user, in: :body, schema: { 
                 type: :array,
@@ -26,7 +26,7 @@ RSpec.describe 'Users', type: :request do
                 end
             end
          
-            response '422', 'email cannot be blank' do
+            response '422', 'email or password cannot be blank' do
                 let(:headers) { invalid_parameters }
                 run_test!
             end

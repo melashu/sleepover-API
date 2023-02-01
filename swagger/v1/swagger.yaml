@@ -129,7 +129,7 @@
       "get": {
         "summary": "Retrieves all Reservations",
         "tags": [
-          "Reservatios"
+          "Reservations"
         ],
         "description": "Retrieves all reservations (only for the logged in user or admin can retrieve all his/her reservations) by recieving token with the request that is sent as response body after login",
         "responses": {
@@ -379,11 +379,11 @@
     },
     "/api/v1/auth/signup": {
       "post": {
-        "summary": "Add new room",
+        "summary": "Add new user",
         "tags": [
           "Users"
         ],
-        "description": "Add new user",
+        "description": "Add new user. one parameter can be added in a direct request to the api this could contain 'role' and this is the way to add admin.",
         "parameters": [
 
         ],
@@ -435,7 +435,7 @@
         "tags": [
           "Users"
         ],
-        "description": "Log user in. This request will return such object: \n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t'token': <token_string>,\n\t\t\t\t\t\t\t'user': { 'username': <username_string>, 'role': 'role_string' }\n\t\t\t\t\t\t} ",
+        "description": "Log user in. This request will return such object: \n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t'token': <token_string>,\n\t\t\t\t\t\t\t'user': { 'username': <username_string>, 'role': 'role_string' }\n\t\t\t\t\t\t}. \n\t\t\t\t\t\t",
         "parameters": [
 
         ],

@@ -3,7 +3,7 @@ require 'swagger_helper'
 RSpec.describe 'Reservations', type: :request do
     path '/api/v1/reservations' do
         get 'Retrieves all Reservations' do
-          tags 'Reservatios'
+          tags 'Reservations'
           description 'Retrieves all reservations (only for the logged in user or admin can retrieve all his/her reservations) by recieving token with the request that is sent as response body after login'
           produces 'application/json'
 
