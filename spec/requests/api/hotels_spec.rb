@@ -116,27 +116,26 @@ RSpec.describe 'Hotels', type: :request do
 
       response '200', 'hotels retrieved' do
         run_test!
-        
+
         before do
           @admin = User.create( name:'admin', role: 'admin', email: 'admin@example.com', password: 'password', username: 'admin')
-          @hotel = Hotel.create( [{name: 'Hotel Name', city: 'New York', country: 'United States', phone: '+1234567890', image: 'https://example.com/hotel.jpg', user_id: @admin.id, details: 'This is a great hotel.'},
-          { name: 'Hotel Name', city: 'city', country: 'country', phone: '+1234567877', image: 'https://example.com/hotel.jpg', user_id: @admin.id, details: 'hotel detals.'}])
+          @hotels = Hotel.create( [{name: 'Hotel Name', city: 'New York', country: 'United States', phone: '+1234567890', image: 'https://example.com/hotel.jpg', user_id: @admin.id, details: 'This is a great hotel.'}])
         end
         schema type: :array,
-        items: {
-          type: :object,
-          properties: {
-            id: { type: :integer },
-            name: { type: :string },
-            city: { type: :string },
-            country: { type: :string },
-            phone: { type: :string },
-            image: { type: :string },
-            details: { type: :string }
-          },
-          required: %w[id name image city country phone details]
-        }
-  
+         items: {
+           type: :object,
+           properties: {
+             id: { type: :integer },
+             name: { type: :string },
+             city: { type: :string },
+             country: { type: :string },
+             phone: { type: :string },
+             image: { type: :string },
+             details:{ type: :string }
+           },
+           required: %w[id name image city country phone details]
+         }
+        
       end
      
       response '401', 'Unauthorized' do
