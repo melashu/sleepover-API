@@ -54,9 +54,9 @@ RSpec.describe 'Hotels', type: :request do
         image: { type: :string },
         details:{ type: :string }
       },
-      required: %w[id name image city country phone details]
+      required: %w[name image city country phone details]
     }
-      response '200', 'hotels retrieved' do
+      response '201', 'hotel added' do
         run_test!
 
         before do
@@ -69,6 +69,11 @@ RSpec.describe 'Hotels', type: :request do
      
       response '401', 'Unauthorized' do
         let(:headers) { invalid_parameters }
+        run_test!
+      end
+
+      response '422', 'Unauthorized' do
+        let(:body) { invalid_parameters }
         run_test!
       end
     end

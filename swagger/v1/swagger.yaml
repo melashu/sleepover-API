@@ -73,10 +73,13 @@
 
         ],
         "responses": {
-          "200": {
-            "description": "hotels retrieved"
+          "201": {
+            "description": "hotel added"
           },
           "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
             "description": "Unauthorized"
           }
         },
@@ -109,7 +112,6 @@
                   }
                 },
                 "required": [
-                  "id",
                   "name",
                   "image",
                   "city",
