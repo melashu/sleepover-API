@@ -11,7 +11,7 @@
         "tags": [
           "Hotels"
         ],
-        "description": "Retrieves all hotels (only logged in users can retrieve hotels) by recieving token with the request that is sent as response body after login",
+        "description": "Retrieves all hotels (only logged in users or admin can retrieve hotels) by recieving token with the request that is sent as response body after login",
         "responses": {
           "200": {
             "description": "hotels retrieved",
@@ -60,6 +60,65 @@
           },
           "401": {
             "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new hotel",
+        "tags": [
+          "Hotels"
+        ],
+        "description": "Add new hotel (only logged in admin can add new hotel) by recieving token with the request that is sent as response body after login",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "hotels retrieved"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "details": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "image",
+                  "city",
+                  "country",
+                  "phone",
+                  "details"
+                ]
+              }
+            }
           }
         }
       }
