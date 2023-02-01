@@ -44,8 +44,7 @@ RSpec.describe 'Reservations', type: :request do
 					tags 'Reservations'
 					description 'Add new resrvation (only logged in admin can add new resrvation) by recieving token with the request that is sent as response body after login'
 					consumes 'application/json'
-					parameter name: :resrvation, in: :body, schema: { 
-						type: :array,
+					parameter name: :resrvation, in: :body, schema: {
                type: :object,
 							 properties: {
 								id: { type: :integer },
