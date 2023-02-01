@@ -73,14 +73,14 @@
 
         ],
         "responses": {
-          "201": {
+          "200": {
             "description": "hotel added"
           },
           "401": {
             "description": "Unauthorized"
           },
           "422": {
-            "description": "Unauthorized"
+            "description": "Not created"
           }
         },
         "requestBody": {
@@ -118,6 +118,142 @@
                   "country",
                   "phone",
                   "details"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hotels/{id}/rooms": {
+      "get": {
+        "summary": "Retrieves all rooms",
+        "tags": [
+          "Rooms"
+        ],
+        "description": "Retrieves all rooms (only logged in users or admin can retrieve rooms) by recieving token with the request that is sent as response body after login",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "rooms retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "room_no": {
+                        "type": "integer"
+                      },
+                      "number_of_bed": {
+                        "type": "integer"
+                      },
+                      "prices": {
+                        "type": "decimal"
+                      },
+                      "photo": {
+                        "type": "string"
+                      },
+                      "reserve": {
+                        "type": "boolean"
+                      },
+                      "user_id": {
+                        "type": "integer"
+                      },
+                      "hotel_id": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "room_no",
+                      "number_of_bed",
+                      "image",
+                      "prices",
+                      "photo",
+                      "reserve",
+                      "user_id",
+                      "hotel_id"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/rooms": {
+      "post": {
+        "summary": "Add new room",
+        "tags": [
+          "Rooms"
+        ],
+        "description": "Add new room (only logged in admin can add new room) by recieving token with the request that is sent as response body after login",
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "room added"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "422": {
+            "description": "Not created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "room_no": {
+                    "type": "integer"
+                  },
+                  "number_of_bed": {
+                    "type": "integer"
+                  },
+                  "prices": {
+                    "type": "decimal"
+                  },
+                  "photo": {
+                    "type": "string"
+                  },
+                  "reserve": {
+                    "type": "boolean"
+                  },
+                  "user_id": {
+                    "type": "integer"
+                  },
+                  "hotel_id": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "room_no",
+                  "number_of_bed",
+                  "image",
+                  "prices",
+                  "photo",
+                  "reserve",
+                  "user_id",
+                  "hotel_id"
                 ]
               }
             }
