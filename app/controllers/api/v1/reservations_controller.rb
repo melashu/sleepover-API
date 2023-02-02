@@ -1,6 +1,8 @@
 class Api::V1::ReservationsController < ApplicationController
+  skip_before_action :authenticate_request, only: %i[create index]
   def index
-    reservations = @current_user.reservations.where(archived: false)
+    # reservations = @current_user.reservations.where(archived: false)
+    reservations = Reservation.find(11) #remove this 
     render json: reservations
   end
 
@@ -17,9 +19,9 @@ class Api::V1::ReservationsController < ApplicationController
   def create
     reservation = Reservation.new(reservation_params)
     if reservation.save
-      render json: reservation, status: :created
+      render json: {message: 'success'}, status: :created
     else
-      render json: { errors: reservation.errors.full_messages }, status: :unprocessable_entity
+      render json: { message: 'error', errors: reservation.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

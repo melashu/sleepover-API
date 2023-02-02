@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   
  default_url_options host: 'localhost'
-  get '/auth/login/', to: 'authentication#login'
+  post '/auth/login/', to: 'authentication#login'
   post '/auth/signup/', to: 'api/v1/users#create'
 
   namespace :api do
