@@ -1,24 +1,24 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
+  # encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  Maintenance database: postgres
-  username: postgres
-  password: 12@34
-  host: localhost
-  port: 5432
+  # Maintenance database: postgres
+  # username: postgres
+  # password: 12@34
+  # host: localhost
+  # port: 5432
 
 development:
   <<: *default
   database: hotel_dev
-
-  # adapter: postgresql
-  # encoding: unicode
-  # port: 4556
-  # host: localhost
-  # username: postgres
+  adapter: postgresql
+  encoding: unicode
+  port: 4556
+  host: localhost
+  username: postgres
+  password: meshu
   # password: 12@34
 
 test:
