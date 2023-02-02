@@ -1,14 +1,13 @@
 class Api::V1::ReservationsController < ApplicationController
-  skip_before_action :authenticate_request, only: %i[create index]
+  skip_before_action :authenticate_request, only: %i[create index all_reservation history]
   def index
-    # reservations = @current_user.reservations.where(archived: false)
-    reservations = Reservation.find(11) # remove this
+    reservations = Reservation.all.where(archived: false)
     render json: reservations
   end
 
-  def all_reservation
-    reservations = Reservation.all.where(archived: false)
-    render json: reservations
+  def my_reservation
+    reservations = Reservation.all.where(user_id: params[:id], archived: false)
+    render reservations
   end
 
   def show
