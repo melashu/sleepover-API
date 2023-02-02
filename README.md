@@ -1,13 +1,70 @@
+<a name="readme-top"></a>
 
-![](https://img.shields.io/badge/Microverse-blueviolet)
+<!--
+HOW TO USE:
+This is an example of how you may give instructions on setting up your project locally.
 
-# Sleep-Over-Backend-App
+Modify this file to match your project and remove sections that don't apply.
 
-A Sleep over App developed using React for Front-End and Ruby on Rails for Back-End.
+REQUIRED SECTIONS:
+- Table of Contents
+- About the Project
+  - Built With
+  - Live Demo
+- Getting Started
+- Authors
+- Future Features
+- Contributing
+- Show your support
+- Acknowledgements
+- License
 
-This is our Final React-Rails Capstone project in the Microverse curriculum.
+After you're finished please remove all the comments and instructions!
+-->
 
-## Learning Objectives 🔖
+<!-- TABLE OF CONTENTS -->
+
+# 📗 Table of Contents
+
+- [📖 About the Project](#about-project)
+  - [🔖 Learning objectives](#learning-objectives)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ](#faq)
+- [📝 License](#license)
+
+<!-- PROJECT DESCRIPTION -->
+
+# 📖 [Sleep-Over-Backend-App] <a name="about-project"></a>
+
+>A Sleep over App developed using React for Front-End and Ruby on Rails for Back-End.
+
+>This is our Final React-Rails Capstone project in the Microverse curriculum.
+
+## Project Documentation 📄
+
+- [x] Here is the [Frontend Project Link](https://github.com/melashu/Hotel-room-reservation-front)👈
+
+- [x] Here is the [Frontend Hosted Link](/)
+
+- [x] Here is the [Api Documentation Link](https://sleepoverapi.onrender.com/api-docs/index.html)
+
+
+## 🔖 [Learning Objectives] <a name="learning-objectives"></a>
 
 - [x] Apply technical knowledge and skills gained in previous modules in a complex project.
 - [x] Understand pros and cons of different approaches of connecting Ruby on Rails back-end with React front-end.
@@ -32,23 +89,63 @@ This is our Final React-Rails Capstone project in the Microverse curriculum.
 - [x] Recognize the value of making equal contributions to group projects to produce the best outcome.
 - [x] Use empty Kanban board to manage tasks with team and own time on the project.
 
-## Project Documentation 📄
+## 🛠 Built With <a name="built-with"></a>
 
-- [x] Here is the [Frontend Project Link](https://github.com/melashu/Hotel-room-reservation-front)👈
+### Tech Stack <a name="tech-stack"></a>
 
-- [x] Here is the [Frontend Hosted Link](/)
 
-- [x] Here is the [Api Documentation Link](https://sleepoverapi.onrender.com/api-docs/index.html)
+<details>
+  <summary>BackEnd</summary>
+  <ul>
+    <li><a href="https://railsguide.com/">Rails</a></li>
+  </ul>
+</details>
 
-## Built With 🛠️
+<details>
+  <summary>Test</summary>
+  <ul>
+    <li><a href="https://rspec.com/">RSPEC</a></li>
+  </ul>
+</details>
 
-- [x] Programming Language: [Ruby](https://www.ruby-lang.org/en/)
-- [x] Linter: [Rubocop](https://rubocop.org/)
-- [x] VS Code or Rubymine
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
-## Getting Started
+<!-- Features -->
 
-To get a local copy up and running follow these simple steps.
+### Key Features <a name="key-features"></a>
+
+- **[Delploy on heroku]** - Delploy on heroku
+- **[Improve security]** - Improve security
+- **[ Add testes ]** -  Add testes
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Version <a name="live-demo"></a>
+
+- [Comming soon]()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Presentation -->
+
+## 🚀 Presenation video <a name="live-demo"></a>
+
+- [Coming soon]()
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
@@ -66,11 +163,6 @@ Likewise for Ruby installation.
 ```
 $ ruby --version && irb
 ```
-
-### Setup
-
-Clone the repository using the GitHub link provided below.
-
 
 ### Install
 
@@ -113,7 +205,26 @@ To run the app you need to run this command in the terminal
 $ rails s
 
 ```
-## Authors
+
+### Usage
+
+To run the project, execute the following command:
+
+```bash command
+` $ rails server`
+```
+
+### Run tests
+
+To run tests, run the following command:
+```bash command
+ $ rspec
+```
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 👥 Authors <a name="authors"></a>
 
 👤 **Benjamin kisenge**
 
@@ -144,23 +255,43 @@ $ rails s
 - Twitter: [@twitterhandle](https://twitter.com/mo_athal)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/moathalkachi)
 
+## 🔭 Future Features <a name="future-features"></a>
 
+- [ ] **[Delploy on heroku]** - Delploy on heroku
+- [ ] **[Improve security]** - Improve security
+- [ ] **[ Add testes ]** -  Add testes
 
-## 🤝 Contributing
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](ttps://github.com/melashu/Hotel-room-reservation-front/issues).
 
-## Show your support
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Give a ⭐️ if you like this project!
+## ⭐️ Show your support <a name="support"></a>
 
-## Acknowledgments
+If you like this project give as a star! ⭐️
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 - [Microverse](https://www.microverse.org/)
 - Coding Partners
 - Code Reviewers
+
+## ❓ FAQ <a name="faq"></a>
+
+- **[How I can run this project?]**
+
+  - [After cloning repository, run rails server.]
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ## 📝 License
 
