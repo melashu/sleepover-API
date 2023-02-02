@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   
- default_url_options host: 'localhost'
+ default_url_options host: 'https://sleepoverapi.onrender.com/'
   get '/auth/login/', to: 'authentication#login'
   post '/auth/signup/', to: 'api/v1/users#create'
 
