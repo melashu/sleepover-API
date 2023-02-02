@@ -33,7 +33,7 @@ test:
 
 production:
   <<: *default
-  # url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
   database: hotel_production
   username: hotel
   password: <%= ENV["hotel_DATABASE_PASSWORD"] %>
