@@ -4,15 +4,11 @@ class Api::V1::RoomsController < ApplicationController
   load_and_authorize_resource
   def index
     rooms = Room.all
-    # hotel = Hotel.includes(:rooms).all.where(rooms:{reserve: false})
-
     render json: rooms
-    # render json: {room: rooms}
   end
 
   def create
     room = Room.new(param_checker)
-    # room.user_id = @current_user.id remove
     if room.save
       render json: { message: 'success' }
     else

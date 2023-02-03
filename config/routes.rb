@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   
 
-#  default_url_options host: 'https://sleepoverapi.onrender.com/'
-  get '/auth/login/', to: 'authentication#login'
+ default_url_options host: 'localhost:3000' 
+  post '/auth/login/', to: 'authentication#login'
   post '/auth/signup/', to: 'api/v1/users#create'
 
   namespace :api do
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       get 'hotels/all', to: 'hotels#all_hotel'
       get 'rooms/reservations', to: 'rooms#checkout_reservation'
       get "reservations/history", to: 'reservations#history'
-      get "reservations/all", to: 'reservations#all_reservation'
+      get "reservations/my/:id", to: 'reservations#my_reservation'
 
       resources :hotels
       resources :rooms

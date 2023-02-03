@@ -2,7 +2,6 @@ class Api::V1::HotelsController < ApplicationController
   load_and_authorize_resource
   before_action :check_hotel, only: %i[destroy show]
   skip_before_action :authenticate_request, only: %i[index show create all_hotel destroy] # remove
-  # create, all_hotel, destroy, must be removed
 
   def index
     hotel = Hotel.includes(:rooms).all.where(rooms: { reserve: false })
@@ -16,7 +15,6 @@ class Api::V1::HotelsController < ApplicationController
 
   def create
     hotel = Hotel.new(check_param)
-    # hotel.user_id = @current_user.id
     if hotel.save
       render json: { message: 'success' }
     else
