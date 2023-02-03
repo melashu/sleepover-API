@@ -1,6 +1,24 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  
+
+ default_url_options host: 'localhost:3000' 
+  post '/auth/login/', to: 'authentication#login'
+  post '/auth/signup/', to: 'api/v1/users#create'
+
+  namespace :api do
+    namespace :v1 do
+      get 'hotels/all', to: 'hotels#all_hotel'
+      get 'rooms/reservations', to: 'rooms#checkout_reservation'
+      get "reservations/history", to: 'reservations#history'
+      get "reservations/my/:id", to: 'reservations#my_reservation'
+
+      resources :hotels
+      resources :rooms
+      resources :users, except: [:create]
+      resources :reservations
+    end
+  end
 end
