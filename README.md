@@ -63,6 +63,8 @@ After you're finished please remove all the comments and instructions!
 
 - [x] Here is the [Api Documentation Link](https://sleepoverapi.onrender.com/api-docs/index.html)
 
+- [x] Here is the [Kanbanboard Link](https://github.com/users/melashu/projects/10/views/1)
+
 
 ## 🔖 [Learning Objectives] <a name="learning-objectives"></a>
 
