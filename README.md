@@ -59,7 +59,7 @@ After you're finished please remove all the comments and instructions!
 
 - [x] Here is the [Frontend Project Link](https://github.com/melashu/Hotel-room-reservation-front)👈
 
-- [x] Here is the [Frontend Hosted Link](/)
+<!-- - [x] Here is the [Frontend Hosted Link](/) -->
 
 - [x] Here is the [Api Documentation Link](https://sleepoverapi.onrender.com/api-docs/index.html)
 
