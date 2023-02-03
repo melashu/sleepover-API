@@ -119,7 +119,7 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- **[Delploy on heroku]** - Delploy on heroku
+- **[Delploy on render]** - Delploy on heroku
 - **[Improve security]** - Improve security
 - **[ Add testes ]** -  Add testes
 
