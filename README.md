@@ -63,32 +63,6 @@ After you're finished please remove all the comments and instructions!
 
 - [x] Here is the [Api Documentation Link](https://sleepoverapi.onrender.com/api-docs/index.html)
 
-
-## 🔖 [Learning Objectives] <a name="learning-objectives"></a>
-
-- [x] Apply technical knowledge and skills gained in previous modules in a complex project.
-- [x] Understand pros and cons of different approaches of connecting Ruby on Rails back-end with React front-end.
-- [x] Understand principles of Ruby on Rails and React frameworks.
-- [x] Apply Ruby best practices and language style guides in code.
-- [x] Apply RoR best practices and language style guides in code (e.g. thin controllers).
-- [x] Apply JavaScript best practices and language style guides in code.
-- [x] Apply React best practices and language style guides in code.
-- [x] Learn about and practice giving constructive feedback to teammates.
-- [x] Perform a code review for a team member.
-- [x] Use the "Review change"" feature from GitHub.
-- [x] Write clear, professional, and respectful review comments for other team members.
-- [x] Explain "why" a change is requested when giving a code review.
-- [x] Plan a 2+ week project with no interim Microverse-set milestones and submit it on time.
-- [x] Apply knowledge of setting working agreements to set group project teams up for success.
-- [x] Independently implement best practices for group agreements to improve teamwork in larger group project.
-- [x] Demonstrate ability to apply best practices of communication for resolving teamwork challenges.
-- [x] Understand that respect is the foundation of strong relationship-building with teammates.
-- [x] Show up throughout group projects as a reliable and committed team member who communicates and manages your time effectively.
-- [x] Recognize the importance of investing in good working relationships with teammates.
-- [x] Understand principles of strong teamwork (being reliable, committed, and consistent) and how to apply them in group projects.
-- [x] Recognize the value of making equal contributions to group projects to produce the best outcome.
-- [x] Use empty Kanban board to manage tasks with team and own time on the project.
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
